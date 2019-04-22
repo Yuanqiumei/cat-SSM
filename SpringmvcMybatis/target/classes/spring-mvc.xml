@@ -13,6 +13,14 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd   
         http://www.springframework.org/schema/tx   
         http://www.springframework.org/schema/tx/spring-tx-4.3.xsd" >
+        
+      <!-- 拦截器 -->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.sspu.Interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
     
     <!-- 1.自动扫描包，实现支持注解的IOC  -->
     <!-- 自动扫描该包，使springmvc认为包下用了@Controller注解的类是控制器 -->
@@ -39,5 +47,9 @@
     <bean id="multipartResolver"
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     </bean>
+    
+    <mvc:cors>
+	    <mvc:mapping path="/**" />
+	</mvc:cors>
     
 </beans>

@@ -5,8 +5,8 @@
 <body>
 <h2>Hello World!</h2>
 
-<form action="uploadFile" method="post" enctype="multipart/form-data">
-<input type="file" name="file" />
+<form action="download" method="get" >
+<input type="text" name="fileName" />
 <input type="submit" name="submit">
 </form>
 </body>
