@@ -1,0 +1,32 @@
+package com.sspu.vo.request;
+
+import java.io.Serializable;
+
+
+
+
+public class RegisterRequest implements Serializable{
+	
+	private String user_email;
+	
+	private String password;
+	
+
+	public String getUser_email() {
+		return user_email;
+	}
+
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+
+}

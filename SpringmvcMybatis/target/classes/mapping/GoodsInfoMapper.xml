@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sspu.dao.GoodsInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sspu.model.GoodsInfo" >
+    <id column="goods_no" property="goodsNo" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_picture" property="goodsPicture" jdbcType="VARCHAR" />
+    <result column="goods_info" property="goodsInfo" jdbcType="VARCHAR" />
+    <result column="goods_price" property="goodsPrice" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    goods_no, goods_name, goods_picture, goods_info, goods_price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_goods_info
+    where goods_no = #{goodsNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_goods_info
+    where goods_no = #{goodsNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sspu.model.GoodsInfo" >
+    insert into tb_goods_info (goods_no, goods_name, goods_picture, 
+      goods_info, goods_price)
+    values (#{goodsNo,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, #{goodsPicture,jdbcType=VARCHAR}, 
+      #{goodsInfo,jdbcType=VARCHAR}, #{goodsPrice,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sspu.model.GoodsInfo" >
+    insert into tb_goods_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsNo != null" >
+        goods_no,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsPicture != null" >
+        goods_picture,
+      </if>
+      <if test="goodsInfo != null" >
+        goods_info,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsNo != null" >
+        #{goodsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPicture != null" >
+        #{goodsPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsInfo != null" >
+        #{goodsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sspu.model.GoodsInfo" >
+    update tb_goods_info
+    <set >
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPicture != null" >
+        goods_picture = #{goodsPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsInfo != null" >
+        goods_info = #{goodsInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice,jdbcType=INTEGER},
+      </if>
+    </set>
+    where goods_no = #{goodsNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sspu.model.GoodsInfo" >
+    update tb_goods_info
+    set goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_picture = #{goodsPicture,jdbcType=VARCHAR},
+      goods_info = #{goodsInfo,jdbcType=VARCHAR},
+      goods_price = #{goodsPrice,jdbcType=INTEGER}
+    where goods_no = #{goodsNo,jdbcType=VARCHAR}
+  </update>
+</mapper>
