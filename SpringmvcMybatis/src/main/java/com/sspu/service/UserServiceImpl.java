@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.sspu.dao.IUserDao;
 import com.sspu.enums.ResponseEnums;
 import com.sspu.model.User;
-import com.sspu.model.UserExtend;
 import com.sspu.vo.BaseResponse;
 import com.sspu.vo.request.RegisterRequest;
 
@@ -24,14 +23,7 @@ public class UserServiceImpl implements IUserService{
 	@Autowired
     private IUserDao userDao;
     
-    /**
-     * 分页
-     */
-    public List<UserExtend> queryUserPager(int pageNO, int size) {
-        int skip=(pageNO-1)*size;
-        return userDao.queryUserPager(skip, size);
-    }
-    
+   
     /**
      * 查询用户总数
      */

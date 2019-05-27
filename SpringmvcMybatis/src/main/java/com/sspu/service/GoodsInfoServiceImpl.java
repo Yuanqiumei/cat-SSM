@@ -15,10 +15,7 @@ import com.sspu.vo.BaseResponse;
 import com.sspu.vo.request.GoodsInfoRequest;
 import com.sspu.vo.response.PageResponse;
 
-/**
-*@author:wushiyi
-*@version:2019年4月21日下午3:02:59
-*/
+
 @Service
 public class GoodsInfoServiceImpl implements GoodsInfoService {
 	

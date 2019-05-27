@@ -3,7 +3,6 @@ package com.sspu.service;
 import java.util.List;
 
 import com.sspu.model.User;
-import com.sspu.model.UserExtend;
 import com.sspu.vo.BaseResponse;
 import com.sspu.vo.request.RegisterRequest;
 
@@ -11,18 +10,7 @@ import com.sspu.vo.request.RegisterRequest;
 
 
 public interface IUserService {
-	 /**
-     * 分页
-     * @param pageNO
-     * @param size
-     * @return
-     */
-    public List<UserExtend> queryUserPager(int pageNO, int size);
-    
-    /**
-     * 查询用户总数
-     * @return
-     */
+	
     public int queryUserCount();
     
     /**
