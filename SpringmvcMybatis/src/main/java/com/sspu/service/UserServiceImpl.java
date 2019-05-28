@@ -87,7 +87,7 @@ public class UserServiceImpl implements IUserService{
 		}
 		
 		try {
-			UserExtend usernew = new UserExtend();
+			User usernew = new User();
 			usernew.setUser_email(request.getUser_email());
 			usernew.setPassword(request.getPassword());
 			

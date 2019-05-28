@@ -17,7 +17,6 @@ import com.sspu.enums.ResponseEnums;
 import com.sspu.model.User;
 import com.sspu.service.IUserService;
 import com.sspu.vo.BaseResponse;
-import com.sspu.vo.request.GoodsInfoRequest;
 import com.sspu.vo.request.LoginRequest;
 import com.sspu.vo.request.RegisterRequest;
 

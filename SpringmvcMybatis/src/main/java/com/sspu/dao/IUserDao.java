@@ -6,20 +6,12 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.sspu.model.User;
-import com.sspu.model.UserExtend;
 
 
 
 public interface IUserDao {
 
-	 /**
-     * 查询用户信息并分页
-     * @param skip
-     * @param size
-     * @return
-     */
-    public List<UserExtend> queryUserPager(@Param("skip") int skip,@Param("size") int size);
-    
+	
     /**
      * 查询用户总数
      * @return
