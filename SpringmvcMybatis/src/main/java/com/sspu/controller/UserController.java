@@ -2,6 +2,7 @@ package com.sspu.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,13 +44,14 @@ public class UserController {
      */
     @PostMapping("/login")
     @ResponseBody
-    public BaseResponse login(@RequestBody LoginRequest request) {
+    public BaseResponse login(HttpServletRequest qq,@RequestBody LoginRequest request) {
     	BaseResponse response = new BaseResponse();
     	try {
     		User user = this.userService.getUserByNameAndPassword(request.getUser_email(), request.getPassword());
     		if(user != null) {
         		response.setResult(user);
         		response.setMsg("登录成功");
+        		qq.setAttribute("user", user); 
     		}else {
     			response.setCode(ResponseEnums.LOGIN_ERROR.getCode());
     			response.setMsg(ResponseEnums.LOGIN_ERROR.getMessage());

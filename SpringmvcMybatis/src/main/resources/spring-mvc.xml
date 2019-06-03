@@ -15,12 +15,16 @@
         http://www.springframework.org/schema/tx/spring-tx-4.3.xsd" >
         
       <!-- 拦截器 -->
-	<!-- <mvc:interceptors>
+	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.sspu.Interceptor.LoginInterceptor"></bean>
+			<mvc:exclude-mapping path="/user/login"/>
+			<mvc:exclude-mapping path="/user/regist"/>
+			<mvc:exclude-mapping path="/download"/>
+			<mvc:exclude-mapping path="/uploadFile"/>
+			<bean class="com.sspu.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
     
     <!-- 1.自动扫描包，实现支持注解的IOC  -->
     <!-- 自动扫描该包，使springmvc认为包下用了@Controller注解的类是控制器 -->
